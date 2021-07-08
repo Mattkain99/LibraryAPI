@@ -10,7 +10,7 @@ namespace LibraryAPI.Data.Configurations
         {
             builder.ToTable("Book", schema: "LibraryAPI");
             builder.HasKey(b => b.Id);
-            builder.Property(b => b.Name);
+            builder.Property(b => b.Title);
 
             
         }

@@ -951,24 +951,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\LDLC\\.nuget\\packages\\": {}
+    "C:\\Users\\mgenevier.dom\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Workzone\\LibraryAPI\\LibraryAPI\\LibraryAPI.csproj",
+      "projectUniqueName": "C:\\Users\\mgenevier.dom\\RiderProjects\\LibraryAPI\\LibraryAPI\\LibraryAPI.csproj",
       "projectName": "LibraryAPI",
-      "projectPath": "D:\\Workzone\\LibraryAPI\\LibraryAPI\\LibraryAPI.csproj",
-      "packagesPath": "C:\\Users\\LDLC\\.nuget\\packages\\",
-      "outputPath": "D:\\Workzone\\LibraryAPI\\LibraryAPI\\obj\\",
+      "projectPath": "C:\\Users\\mgenevier.dom\\RiderProjects\\LibraryAPI\\LibraryAPI\\LibraryAPI.csproj",
+      "packagesPath": "C:\\Users\\mgenevier.dom\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\mgenevier.dom\\RiderProjects\\LibraryAPI\\LibraryAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\LDLC\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\mgenevier.dom\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1032,7 +1038,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\LDLC\\.dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

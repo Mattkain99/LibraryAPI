@@ -26,7 +26,8 @@ namespace LibraryAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.RegisterContext(_configuration)
-                .AddRepositories();
+                .AddRepositories()
+                .AddServices();
             
             
             services.AddControllers()

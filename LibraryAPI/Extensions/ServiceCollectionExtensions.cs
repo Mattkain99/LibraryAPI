@@ -1,4 +1,6 @@
 using LibraryAPI.Data;
+using LibraryAPI.Data.Repositories;
+using LibraryAPI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,12 +11,14 @@ namespace LibraryAPI.Extensions
     {
         public static IServiceCollection AddRepositories(this IServiceCollection services)
         {
-            return services; 
+            return services
+                .AddScoped<LibraryBookRepository>(); 
         }
 
         public static IServiceCollection AddServices(this IServiceCollection services)
         {
-            return services; 
+            return services
+                .AddScoped<LibraryBooksService>(); 
         }
 
         public static IServiceCollection

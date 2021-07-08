@@ -16,9 +16,6 @@ namespace LibraryAPI.Data.Repositories
             _context = context;
         }
 
-        public async Task<IReadOnlyCollection<Book>> GetBooksAsync() =>
-            await _context.Set<Book>().Include(b => b.Libraries).ToListAsync();
-
         public async Task AddBookAsync(Book book)
         {
             await _context.AddAsync(book);
@@ -44,20 +41,23 @@ namespace LibraryAPI.Data.Repositories
         public async Task<IReadOnlyCollection<Library>> GetAllLibrariesAsync() =>
             await _context.Set<Library>().ToListAsync();
 
-        public async Task<Dictionary<Library, List<Book>>> GetAllLibraryBookAsync() =>
-            await _context.Set<LibraryBook>()
-                .Include(lb => lb.Book)
-                .ThenInclude(b=>b.LibraryBooks)
-                .ThenInclude(lb=>lb.Library)
+        public async Task<Dictionary<string, List<Library>>> GetLibrariesByBookAsync(string clue = null)
+        {
+            var query = _context.Set<LibraryBook>()
                 .Include(lb => lb.Library)
-                .GroupBy(lb=>lb.Library)
-                .ToDictionaryAsync(g=>g.Key, g=>g.Select(lb=>lb.Book).ToList());
-
-        public async Task<IReadOnlyCollection<Book>> SearchBookAsync(string clue) =>
-            await _context.Set<Book>()
-                .Include(b => b.LibraryBooks)
-                .ThenInclude(lb => lb.Library)
-                .Where(b => b.Name.ToLower().Contains(clue.ToLower()))
-                .ToListAsync();
+                .Include(lb => lb.Book)
+                .AsQueryable();
+                
+            if (!string.IsNullOrEmpty(clue))
+            {
+                query = query.Where(lb => lb.Book.Title.ToLower().Contains(clue.ToLower()));
+            }
+                
+            return await query
+                .GroupBy(lb => lb.Book.Title)
+                .ToDictionaryAsync(
+                g => g.Key,
+                g => g.Select(lb => lb.Library).ToList());
+        }
     }
 }
